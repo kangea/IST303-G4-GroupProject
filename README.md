@@ -12,9 +12,15 @@ User Stories:
 
 Search, track, receive notifications, login, 
 
-As a streetwear enthusiast, I can type in the product name for my favorite brand and choose to get notified when it restocks through discord. (Development time: 1 month)
+As a user, I can search for products.
 
-As a collector, I can monitor multiple products to be notified with links to the product as soon as they drop so I can purchase them. (Development time: 1 month)
+As a user, I can login and save products to monitor. 
+
+As a user, I will recieve notifications when a product restocks or a new product drops.
+
+As a streetwear enthusiast, I can type in the product name for my favorite brand and choose to get notified when it restocks through discord. 
+
+As a collector, I can monitor multiple products to be notified with links to the product as soon as they drop so I can purchase them. 
 
 
 
