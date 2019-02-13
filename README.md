@@ -10,7 +10,7 @@ Stakeholders: Team members, Buyers
 
 User Stories:
 
-Search, track, receive notifications, login, 
+Search, track, receive notifications, login 
 
 As a user, I can search for products.
 
