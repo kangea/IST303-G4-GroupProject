@@ -10,13 +10,11 @@ Stakeholders: Team members, Buyers
 
 User Stories:
 
-Search, track, receive notifications, login 
+As a user, I can search for products. (1~2 weeks)
 
-As a user, I can search for products.
+As a user, I can login and save products to monitor. (~1 week)
 
-As a user, I can login and save products to monitor. 
-
-As a user, I will recieve notifications when a product restocks or a new product drops.
+As a user, I will recieve notifications when a product restocks or a new product drops. (2~3 week)
 
 As a streetwear enthusiast, I can type in the product name for my favorite brand and choose to get notified when it restocks through discord. 
 
