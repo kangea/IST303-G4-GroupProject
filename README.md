@@ -2,23 +2,26 @@
 
 Application Concept: 
 
-A universal product monitor. Capable of monitoring any site for products based on keywords. Optimized for Shopify. Sends alerts via Discord when new products are detected.
+A universal product monitor. Capable of monitoring any site for products based on keywords or brand/shop. Optimized for Shopify. Sends alerts via Discord when products are restocked or dropped.
 
 Team Members: Eunice Kang, Quan Zhou, Sahith Cheera
 
-Stakeholders: Team members, Buyers
+Stakeholders: 
+Buyers/Users - people using the website to monitor a product.
+Shops/Companies - people will be directed to their own websites to purchase the monitored products
+
 
 User Stories:
 
 As a user, I can search for products. (1~2 weeks)
 
-As a user, I can login and save products to monitor. (~1 week)
+As a user, I can browse the websites for products. (1~2 weeks)
+
+As a user, I can login (~1 week)
+
+As a user, I can save products to monitor. (~1 week)
 
 As a user, I will recieve notifications when a product restocks or a new product drops. (2~3 week)
-
-As a streetwear enthusiast, I can type in the product name for my favorite brand and choose to get notified when it restocks through discord. 
-
-As a collector, I can monitor multiple products to be notified with links to the product as soon as they drop so I can purchase them. 
 
 
 
