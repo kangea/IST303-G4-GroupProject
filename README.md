@@ -27,11 +27,7 @@ As a user, I can login and save user information.
 As a user, I can save products to monitor.
 
 <h3>5. Receive Notification - priority 30 - 5 days</h3>
-As a user, I will recieve notifications when a product restocks or a new product drops.
+As a user, I will receive notifications when a product restocks or a new product drops.
 
 <h3>6. Catalog - priority 10 - 12 days</h3>
 As an admin, I can choose products for the site catalog.
-
-
-
-
