@@ -1,4 +1,4 @@
-# IST340-G4-GroupProject
+# IST303-G4-GroupProject
 <h2>Team Name:</h2>
 QuEST
 <h2>Team Members:</h2> Eunice Kang, Quan Zhou, Sahith Cheera
