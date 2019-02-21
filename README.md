@@ -15,15 +15,23 @@ Shops/Companies - people will be directed to their own websites to purchase the 
 
 <h2>User Stories:</h2>
 
-As a user, I can search for products. (1~2 weeks)
+<h3>1. Product Search - priority 20 - 6 days</h3>
+As a user, I can search for products.
 
+<h3>2. Product Browsing - priority 20 - 12 days</h3>
 As a user, I can browse the websites for products. (1~2 weeks)
 
-As a user, I can login (~1 week)
+<h3>3. User Account - priority 40 - 5 days</h3>
+As a user, I can login and save user information.
 
-As a user, I can save products to monitor. (~1 week)
+<h3>4. Monitor Product - priority 20 - 14 days</h3>
+As a user, I can save products to monitor.
 
-As a user, I will recieve notifications when a product restocks or a new product drops. (2~3 week)
+<h3>5. Receive Notification - priority 20 - 5 days</h3>
+As a user, I will recieve notifications when a product restocks or a new product drops.
+
+<h3>6. Catalog - priority 10 - 12 days</h3>
+As an admin, I can choose products for the site catalog.
 
 
 
