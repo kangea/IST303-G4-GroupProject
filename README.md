@@ -1,12 +1,11 @@
 # IST340-G4-GroupProject
 <h2>Team Name:</h2>
 QuEST
+<h2>Team Members:</h2> Eunice Kang, Quan Zhou, Sahith Cheera
 
 <h2>Application Concept: </h2>
 
 A universal product monitor. Capable of monitoring any site for products based on keywords or brand/shop. Optimized for Shopify. Sends alerts via Discord when products are restocked or dropped.
-
-<h2>Team Members:</h2> Eunice Kang, Quan Zhou, Sahith Cheera
 
 <h2>Stakeholders: </h2>
 Buyers/Users - people using the website to monitor a product.
