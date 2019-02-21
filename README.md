@@ -24,10 +24,10 @@ As a user, I can browse the websites for products. (1~2 weeks)
 <h3>3. User Account - priority 40 - 5 days</h3>
 As a user, I can login and save user information.
 
-<h3>4. Monitor Product - priority 20 - 14 days</h3>
+<h3>4. Monitor Product - priority 30 - 14 days</h3>
 As a user, I can save products to monitor.
 
-<h3>5. Receive Notification - priority 20 - 5 days</h3>
+<h3>5. Receive Notification - priority 30 - 5 days</h3>
 As a user, I will recieve notifications when a product restocks or a new product drops.
 
 <h3>6. Catalog - priority 10 - 12 days</h3>
