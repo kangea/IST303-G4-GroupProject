@@ -32,5 +32,8 @@ As a user, I will receive notifications when a product restocks or a new product
 <h3>6. Catalog - priority 10 - 12 days</h3>
 As an admin, I can choose products for the site catalog.
 
+<h1>Burn Down Chart:</h1>
+https://docs.google.com/spreadsheets/d/1_GElxk9OfzzL8LlJCtKbw0akDhyDqFmxAgP4YCWYFnY/edit?usp=sharing
+
 <h1>Stand Up Meetings:</h1>
 https://docs.google.com/document/d/1Mx9A8oGmECCpuB7SF3sfGk1WLctAKHb8VLbcBaVW2fk/edit?usp=sharing
