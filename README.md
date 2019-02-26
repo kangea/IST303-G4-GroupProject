@@ -18,7 +18,7 @@ Shops/Companies - people will be directed to their own websites to purchase the 
 As a user, I can search for products.
 
 <h3>2. Product Browsing - priority 20 - 12 days</h3>
-As a user, I can browse the websites for products. (1~2 weeks)
+As a user, I can browse the websites for products.
 
 <h3>3. User Account - priority 40 - 5 days</h3>
 As a user, I can login and save user information.
@@ -31,3 +31,6 @@ As a user, I will receive notifications when a product restocks or a new product
 
 <h3>6. Catalog - priority 10 - 12 days</h3>
 As an admin, I can choose products for the site catalog.
+
+<h1>Stand Up Meetings:</h1>
+https://docs.google.com/document/d/1Mx9A8oGmECCpuB7SF3sfGk1WLctAKHb8VLbcBaVW2fk/edit?usp=sharing
