@@ -97,14 +97,14 @@ As an admin, I can choose products for the site catalog.
 
 <h2>2 Iterations for Milestone 1.0: (30 days)</h2>
 <ul>
-  <li>Iteration 1: (17 days)
+  <li>Iteration 1: (15 days)
      <ul>
-       <li>Admin interface (12 days)</li>
-       <li>Search interface (3 days)</li>
-       <li>Home, brand, & products page (2 days)</li>
+       <li>Admin interface</li>
+       <li>Search interface</li>
+       <li>Home, brand, & products page</li>
      </ul>
   </li>
-  <li>Iteration 2: (12 days)
+  <li>Iteration 2: (15 days)
     <ul>
       <li>Products database</li>
       <li>Search function and optimization</li>
