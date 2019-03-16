@@ -5,7 +5,7 @@ class Product(models.Model):
     stock_status = models.BinaryField()
     url = models.URLField()
     picture_url = models.URLField()
-    price = models.DecimalField(decimal_places=2)
+    price = models.DecimalField(max_digits=10,decimal_places=2)
 
     def getSKU(self):
         return self.SKU
