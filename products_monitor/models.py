@@ -1,6 +1,12 @@
 from django.db import models
 
+class Brand(models.Model):
+    name = models.CharField()
+    url = models.URLField()
+    logo_url = models.URLField()
+
 class Product(models.Model):
+    name = models.CharField()
     SKU = models.CharField(max_length=200)
     stock_status = models.BinaryField()
     url = models.URLField()
