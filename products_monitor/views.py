@@ -7,7 +7,7 @@ from .models import Brand, Product
 
 class IndexView(generic.ListView):
     template_name = 'products_monitor/index.html'
-    context_objet_name = 'brand_list'
+    context_object_name = 'brand_list'
 
     def get_queryset(self):
         return Brand.objects.all().order_by('name')

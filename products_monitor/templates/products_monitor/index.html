@@ -1,14 +1,17 @@
-{% load static %}
+{% extends "products_monitor/base.html" %}
 
-<h1>QuEST Product Monitor</h1>
+{% block content %}
+<div>
+  <h2>Brands</h2>
+  {% if brand_list %}
+    <ul>
+      {% for brand in brand_list %}
+        <li><a href="{{ brand.url }}">{{ brand.name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+      <p>No brands are available.</p>
+  {% endif %}
+</div>
 
-<h2>Brands</h2>
-{% if brand_list %}
-  <ul>
-    {% for brand in brand_list %}
-      <li><a href="{{ brand.url }}">{{ brand.name }}</a></li>
-    {% endfor %}
-  </ul>
-{% else %}
-    <p>No brands are available.</p>
-{% endif %}
+{% endblock %}
