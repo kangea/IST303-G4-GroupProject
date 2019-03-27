@@ -11,3 +11,10 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         return Brand.objects.all().order_by('name')
+
+class BrandView(generic.ListView):
+    template_name = 'products_monitor/brands.html'
+    context_object_name = 'brand_list'
+
+    def get_queryset(self):
+        return Brand.objects.all().order_by('name')
