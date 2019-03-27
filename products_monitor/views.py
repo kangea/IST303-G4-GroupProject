@@ -17,6 +17,10 @@ class IndexView(generic.ListView):
         context['product_list'] = Product.objects .all()
         return context
 
+class ProductView(generic.ListView):
+    template_name = 'products_monitor/products.html'
+    
+
 class ProductDetailView(generic.DetailView):
     model = Product
     template_name = 'products_monitor/product_detail.html'
