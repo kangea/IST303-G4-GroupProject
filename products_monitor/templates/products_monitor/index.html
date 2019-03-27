@@ -1,6 +1,7 @@
 {% extends "products_monitor/base.html" %}
 
 {% block content %}
+<br>
 <div>
   <h2>Brands</h2>
   {% if brand_list %}
@@ -11,6 +12,19 @@
     </ul>
   {% else %}
       <p>No brands are available.</p>
+  {% endif %}
+</div>
+
+<div>
+  <h2>Products</h2>
+  {% if product_list %}
+    <ul>
+      {% for product in product_list %}
+        <li><a href="{{ brand.url }}">{{ product.name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+      <p>No products are available.</p>
   {% endif %}
 </div>
 

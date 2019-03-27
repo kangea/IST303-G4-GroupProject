@@ -18,6 +18,7 @@ class Product(models.Model):
     picture_url = models.URLField()
     price = models.DecimalField(max_digits=10,decimal_places=2)
     restock_date = models.DateTimeField('date restocked')
+    new_product = models.BinaryField()
 
     def __str__(self):
         return self.name

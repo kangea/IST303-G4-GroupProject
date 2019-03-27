@@ -12,6 +12,18 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Brand.objects.all().order_by('name')
 
+    def get_context_data(self, *args, **kwargs):
+        context = super(IndexView, self).get_context_data(*args, **kwargs)
+        context['product_list'] = Product.objects .all()
+        return context
+
+class ProductDetailView(generic.DetailView):
+    model = Product
+    template_name = 'products_monitor/product_detail.html'
+
+    def get_queryset(self):
+        return Product.objects.all()
+
 class BrandView(generic.ListView):
     template_name = 'products_monitor/brands.html'
     context_object_name = 'brand_list'
