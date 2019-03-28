@@ -19,7 +19,10 @@ class IndexView(generic.ListView):
 
 class ProductView(generic.ListView):
     template_name = 'products_monitor/products.html'
-    
+    context_object_name = 'product_list'
+
+    def get_queryset(self):
+        return Product.objects.all().order_by('brand')
 
 class ProductDetailView(generic.DetailView):
     model = Product
