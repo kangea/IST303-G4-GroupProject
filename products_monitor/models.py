@@ -14,7 +14,7 @@ class Product(models.Model):
     name = models.CharField(max_length=200)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE)
     SKU = models.CharField(max_length=200)
-    stock_status = models.BinaryField()
+    instock = models.BooleanField()
     picture_url = models.URLField()
     price = models.DecimalField(max_digits=10,decimal_places=2)
     restock_date = models.DateTimeField('date restocked')
