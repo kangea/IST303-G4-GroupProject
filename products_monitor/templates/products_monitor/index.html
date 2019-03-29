@@ -16,11 +16,24 @@
 </div>
 
 <div>
-  <h2>Products</h2>
-  {% if product_list %}
+  <h2>Newest Products</h2>
+  {% if product_list_new %}
     <ul>
-      {% for product in product_list %}
-        <li><a href="{{ brand.url }}">{{ product.name }}</a></li>
+      {% for product in product_list_new %}
+        <li><a href="{% url 'products_monitor:product_detail' product.id }">{{ product.name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+      <p>No products are available.</p>
+  {% endif %}
+</div>
+
+<div>
+  <h2>Just Restocked</h2>
+  {% if product_list_restock %}
+    <ul>
+      {% for product in product_list_restock %}
+        <li><a href="{% url 'products_monitor:product_detail' product.id }">{{ product.name }}</a></li>
       {% endfor %}
     </ul>
   {% else %}

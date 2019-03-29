@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
+from django.utils import timezone
 
 from .models import Brand, Product
 
@@ -14,7 +15,8 @@ class IndexView(generic.ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(IndexView, self).get_context_data(*args, **kwargs)
-        context['product_list'] = Product.objects .all()
+        context['product_list_new'] = Product.objects.all().order_by('-original_release_date')[:5]
+        context['product_list_restock'] = Product.objects.filter(restock_date__lte=timezone.now()).order_by('-restock_date')[:5]
         return context
 
 class ProductView(generic.ListView):
