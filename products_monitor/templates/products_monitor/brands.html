@@ -2,17 +2,22 @@
 
 {% block content %}
 <br>
-<div>
-  <h2>Brands</h2>
+  <h2 class="text-center">FEATURED BRANDS</h2>
   {% if brand_list %}
-    <ul>
+    <div class="row-eq-height">
       {% for brand in brand_list %}
-        <li><a href="{{ brand.url }}">{{ brand.name }}</a></li>
+        <div class="col-sm p-5 m-auto">
+          <a href="{{ brand.url }}">
+            <img src="{{ brand.logo_url }}" class="img-thumbnail">
+          </a>
+        </div>
+        {% if forloop.counter|divisibleby:4 %}
+          </div><div class="row-eq-height">
+        {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   {% else %}
       <p>No brands are available.</p>
   {% endif %}
-</div>
 
 {% endblock %}
