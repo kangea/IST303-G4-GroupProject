@@ -2,21 +2,53 @@
 
 {% block content %}
 <br>
-  <h2 class="text-center">ALL PRODUCTS</h2>
-  {% if product_list %}
-    <div class="row-eq-height">
-      {% for product in product_list %}
-        <div class="col-sm m-auto">
-          <a href="{% url 'products_monitor:product_detail' product.id }">
-            <img src="{{ product.picture_url }}" class="card-img-top">
+  <h2 class="text-center">PRODUCTS</h2>
+  <!-- <div class="card-deck">
+    <div class="col-sm m-auto">
+      <div class="card text-center">
+        <a href="#" class="m-auto">
+          <img src="https://assets.adidas.com/images/h_600,f_auto,q_auto:sensitive,fl_lossy/29dd8989609e481eb452a93100fa83a0_9366/Falcon_Shoes_White_B37845_01_standard.jpg" class="card-img-top">
+        </a>
+        <div class="card-footer">
+          <a href="#" class="card-title">
+            Adidas Falcons
           </a>
-          <div class="card-body">
-            <a href="{% url 'products_monitor:product_detail' product.id }" class="card-title">
-              {{ product.name }}
+          <p class="card-text">$100.00</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm d-flex">
+      <div class="card text-center flex-fill">
+        <a href="#" class="m-auto">
+          <img src="https://m.media-amazon.com/images/I/91MZ562+84L._SX480_.jpg" class="card-img-top">
+        </a>
+        <div class="card-footer">
+          <a href="#" class="card-title">
+            Adidas Falcons
+          </a>
+          <p class="card-text">$100.00</p>
+        </div>
+      </div>
+    </div> -->
+
+  {% if product_list %}
+      {% for product in product_list %}
+        <div class="col-sm d-flex">
+          <div class="card text-center flex-fill">
+            <a href="{% url 'products_monitor:product_detail' product.id }">
+              <img src="{{ product.picture_url }}" class="card-img-top">
             </a>
-            <p class="card-text">{{ product.price }}</p>
+            <div class="card-footer">
+              <a href="{% url 'products_monitor:product_detail' product.id }" class="card-title text-center">
+                {{ product.name }}
+              </a>
+              <p class="card-text text-center">${{ product.price }}</p>
+            </div>
           </div>
         </div>
+        {% if forloop.counter|divisibleby:4 %}
+          </div><div class="card-deck">
+        {% endif %}
       {% endfor %}
     </div>
   {% else %}
