@@ -2,17 +2,25 @@
 
 {% block content %}
 <br>
-<div>
-  <h2>Products</h2>
+  <h2 class="text-center">ALL PRODUCTS</h2>
   {% if product_list %}
-    <ul>
+    <div class="row-eq-height">
       {% for product in product_list %}
-        <li><a href="{% url 'products_monitor:product_detail' product.id }">{{ product.name }}</a></li>
+        <div class="col-sm m-auto">
+          <a href="{% url 'products_monitor:product_detail' product.id }">
+            <img src="{{ product.picture_url }}" class="card-img-top">
+          </a>
+          <div class="card-body">
+            <a href="{% url 'products_monitor:product_detail' product.id }" class="card-title">
+              {{ product.name }}
+            </a>
+            <p class="card-text">{{ product.price }}</p>
+          </div>
+        </div>
       {% endfor %}
-    </ul>
+    </div>
   {% else %}
       <p>No products are available.</p>
   {% endif %}
-</div>
 
 {% endblock %}
