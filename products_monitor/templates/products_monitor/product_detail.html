@@ -1,0 +1,50 @@
+{% extends "products_monitor/base.html" %}
+
+{% block content %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<!-- breadcrumb list -->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'products_monitor:index' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'products_monitor:products' %}">Products</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ product.brand }} {{ product.name }}</li>
+  </ol>
+</nav>
+
+<!-- product -->
+<div class="row">
+  <!-- product picture -->
+  <div class="col">
+    <div class="">
+      <div class="">
+        <img class="" src="{{ product.picture_url }}">
+      </div>
+    </div>
+  </div>
+  <!-- product details -->
+  <div class="col">
+    <h2>{{ product.name }}</h2>
+    <h3>{{ product.price }}</h3>
+    <h4>SKU: {{ product.SKU }}</h4>
+    <h4>Released on {{ product.original_release_date }}</h4>
+    <!-- info section -->
+    <!-- stock status -->
+    <div class="">
+      {% if product.instock %}
+        <p>IN STOCK</p>
+      {% else %}
+        <p>OUT OF STOCK</p>
+        <span>Will restock on {{ product.restock_date }}</span>
+      {% endif %}
+    </div>
+    <!-- Links -->
+    <div class="row">
+        {% for url in product.producturl_set.all %}
+          <a href="{{ url.url }}" class="btn">{{ url.site_name }}</a>
+        {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
