@@ -3,13 +3,16 @@
 {% block content %}
 <br>
 <div>
-  <h2>Brands</h2>
+  <a href="{% url 'products_monitor:brands' %}"><h2>Brands</h2></a>
   {% if brand_list %}
-    <ul>
+    <div class="list-group list-group-horizontal-md">
       {% for brand in brand_list %}
-        <li><a href="{{ brand.url }}">{{ brand.name }}</a></li>
+        <a href="{{ brand.url }}" class="list-group-item list-group-item-action flex-fill">{{ brand.name }}</a>
+        {% if forloop.counter|divisibleby:5 %}
+          </div><div class="list-group list-group-horizontal-md">
+        {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   {% else %}
       <p>No brands are available.</p>
   {% endif %}
@@ -18,11 +21,26 @@
 <div>
   <h2>Newest Products</h2>
   {% if product_list_new %}
-    <ul>
+    <div class="card-deck">
       {% for product in product_list_new %}
-        <li><a href="{% url 'products_monitor:product_detail' product.id }">{{ product.name }}</a></li>
+        <div class="col-sm d-flex">
+          <div class="card text-center flex-fill">
+            <a href="{% url 'products_monitor:product_detail' product.id }">
+              <img src="{{ product.picture_url }}" class="card-img-top">
+            </a>
+            <div class="card-footer">
+              <a href="{% url 'products_monitor:product_detail' product.id }" class="card-title text-center">
+                {{ product.name }}
+              </a>
+              <p class="card-text text-center">${{ product.price }}</p>
+            </div>
+          </div>
+        </div>
+        {% if forloop.counter|divisibleby:5 %}
+          </div><div class="card-deck">
+        {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   {% else %}
       <p>No products are available.</p>
   {% endif %}
@@ -31,11 +49,26 @@
 <div>
   <h2>Just Restocked</h2>
   {% if product_list_restock %}
-    <ul>
+    <div class="card-deck">
       {% for product in product_list_restock %}
-        <li><a href="{% url 'products_monitor:product_detail' product.id }">{{ product.name }}</a></li>
+        <div class="col-sm d-flex">
+          <div class="card text-center flex-fill">
+            <a href="{% url 'products_monitor:product_detail' product.id }">
+              <img src="{{ product.picture_url }}" class="card-img-top">
+            </a>
+            <div class="card-footer">
+              <a href="{% url 'products_monitor:product_detail' product.id }" class="card-title text-center">
+                {{ product.name }}
+              </a>
+              <p class="card-text text-center">${{ product.price }}</p>
+            </div>
+          </div>
+        </div>
+        {% if forloop.counter|divisibleby:5 %}
+          </div><div class="card-deck">
+        {% endif %}
       {% endfor %}
-    </ul>
+    </div>
   {% else %}
       <p>No products are available.</p>
   {% endif %}
