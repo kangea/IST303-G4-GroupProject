@@ -4,7 +4,6 @@ import datetime
 
 class Brand(models.Model):
     name = models.CharField(max_length=200)
-    url = models.URLField()
     logo_url = models.URLField()
 
     def __str__(self):
@@ -31,6 +30,7 @@ class Product(models.Model):
 class ProductURL(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     url = models.URLField()
+    site_name = models.CharField()
 
     def __str__(self):
         return self.url
