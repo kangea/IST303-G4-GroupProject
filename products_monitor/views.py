@@ -2,7 +2,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
+from django_filters.views import FilterView
+from django_filters import rest_framework as filters
 from django.utils import timezone
+from .filters import ProductFilter
 
 from .models import Brand, Product
 
@@ -19,12 +22,15 @@ class IndexView(generic.ListView):
         context['product_list_restock'] = Product.objects.filter(restock_date__lte=timezone.now()).order_by('-restock_date')[:5]
         return context
 
-class ProductView(generic.ListView):
+class ProductView(FilterView):
     template_name = 'products_monitor/products.html'
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = ProductFilter
     context_object_name = 'product_list'
 
     def get_queryset(self):
-        return Product.objects.all().order_by('brand')
+        return Product.objects.all()
+
 
 class ProductDetailView(generic.DetailView):
     model = Product

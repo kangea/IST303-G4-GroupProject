@@ -1,59 +1,74 @@
 {% extends "products_monitor/base.html" %}
+{% load widget_tweaks %}
 
 {% block content %}
 <br>
   <h2 class="text-center">PRODUCTS</h2>
-  <!-- <div class="card-deck">
-    <div class="col-sm m-auto">
-      <div class="card text-center">
-        <a href="#" class="m-auto">
-          <img src="https://assets.adidas.com/images/h_600,f_auto,q_auto:sensitive,fl_lossy/29dd8989609e481eb452a93100fa83a0_9366/Falcon_Shoes_White_B37845_01_standard.jpg" class="card-img-top">
-        </a>
-        <div class="card-footer">
-          <a href="#" class="card-title">
-            Adidas Falcons
-          </a>
-          <p class="card-text">$100.00</p>
-        </div>
+<div class="row">
+  <!-- FILTERS -->
+  <div class="col-3 d-sm-none d-md-block">
+    <form method="get">
+      <h5>FILTER</h5>
+      <div class="form-group form-row">
+        {{ filter.form.brand.label_tag }}
+        {% render_field filter.form.brand class="form-control" %}
       </div>
-    </div>
-    <div class="col-sm d-flex">
-      <div class="card text-center flex-fill">
-        <a href="#" class="m-auto">
-          <img src="https://m.media-amazon.com/images/I/91MZ562+84L._SX480_.jpg" class="card-img-top">
-        </a>
-        <div class="card-footer">
-          <a href="#" class="card-title">
-            Adidas Falcons
-          </a>
-          <p class="card-text">$100.00</p>
-        </div>
+      <div class="form-group form-row">
+        <label>In stock?</label>
+        {% render_field filter.form.instock class="form-control" %}
       </div>
-    </div> -->
-
-  {% if product_list %}
-      <div class="card-deck">
-      {% for product in product_list %}
-        <div class="col-sm d-flex">
-          <div class="card text-center flex-fill">
-            <a href="{% url 'products_monitor:product_detail' product.id %}" class="m-auto">
-              <img src="{{ product.picture_url }}" class="card-img-top">
-            </a>
-            <div class="card-footer">
-              <a href="{% url 'products_monitor:product_detail' product.id %}" class="card-title">
-                {{ product.brand }} {{ product.name }}
-              </a>
-              <p class="card-text text-center">${{ product.price }}</p>
-            </div>
+      <div class="form-group form-inline">
+        <div class="form-row">
+          <label>Price:</label>
+        </div>
+        <div class="form-row">
+          <div class="col-auto">
+          {% render_field filter.form.price class="form-control col-5" %}
           </div>
         </div>
-        {% if forloop.counter|divisibleby:4 %}
-          </div><br><div class="card-deck">
-        {% endif %}
-      {% endfor %}
-    </div>
-  {% else %}
-      <p>No products are available.</p>
-  {% endif %}
-
+      </div>
+      <div class="form-group form-row">
+        <label>Restock Date:</label>
+        {% render_field filter.form.restock_date class="form-control" %}
+      </div>
+      <div class="form-group form-inline">
+        {% render_field filter.form.restock_date__range class="form-control col-5" %}
+      </div>
+      <div class="form-group form-row">
+        <label>Release Date:</label>
+        {% render_field filter.form.release_date class="form-control" %}
+      </div>
+      <div class="form-group form-inline">
+        {% render_field filter.form.release_date__range class="form-control col-5" %}
+      </div>
+      <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+  </div>
+    <div class="col-9">
+    {% if filter.qs %}
+        <div class="card-deck">
+        {% for product in filter.qs %}
+          <div class="col-sm d-flex">
+            <div class="card text-center flex-fill">
+              <a href="{% url 'products_monitor:product_detail' product.id %}" class="m-auto">
+                <img src="{{ product.picture_url }}" class="card-img-top">
+              </a>
+              <div class="card-footer">
+                <a href="{% url 'products_monitor:product_detail' product.id %}" class="card-title">
+                  {{ product.brand }} {{ product.name }}
+                </a>
+                <p class="card-text text-center">${{ product.price }}</p>
+              </div>
+            </div>
+          </div>
+          {% if forloop.counter|divisibleby:4 %}
+            </div><br><div class="card-deck">
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% else %}
+        <p>No products are available.</p>
+    {% endif %}
+  </div>
+</div>
 {% endblock %}
