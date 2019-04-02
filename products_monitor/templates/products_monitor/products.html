@@ -8,6 +8,10 @@
   <!-- FILTERS -->
   <div class="col-3 d-sm-none d-md-block">
     <form method="get">
+      <h5>SORT</h5>
+      <div class="form-group form-row">
+        {% render_field filter.form.o class="form-control" %}
+      </div>
       <h5>FILTER</h5>
       <div class="form-group form-row">
         {{ filter.form.brand.label_tag }}

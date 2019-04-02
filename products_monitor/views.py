@@ -27,6 +27,8 @@ class ProductView(FilterView):
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = ProductFilter
     context_object_name = 'product_list'
+    ordering_fields = ('price', 'restock_date', 'original_release_date', 'watchers')
+    ordering = 'release_date'
 
     def get_queryset(self):
         return Product.objects.all()
