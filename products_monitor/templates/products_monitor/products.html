@@ -36,19 +36,19 @@
       {% for product in product_list %}
         <div class="col-sm d-flex">
           <div class="card text-center flex-fill">
-            <a href="{% url 'products_monitor:product_detail' product.id %}">
+            <a href="{% url 'products_monitor:product_detail' product.id %}" class="m-auto">
               <img src="{{ product.picture_url }}" class="card-img-top">
             </a>
             <div class="card-footer">
-              <a href="{% url 'products_monitor:product_detail' product.id %}" class="card-title text-center">
-                {{ product.name }}
+              <a href="{% url 'products_monitor:product_detail' product.id %}" class="card-title">
+                {{ product.brand }} {{ product.name }}
               </a>
               <p class="card-text text-center">${{ product.price }}</p>
             </div>
           </div>
         </div>
-        {% if forloop.counter|divisibleby:5 %}
-          </div><div class="card-deck">
+        {% if forloop.counter|divisibleby:4 %}
+          </div><br><div class="card-deck">
         {% endif %}
       {% endfor %}
     </div>
