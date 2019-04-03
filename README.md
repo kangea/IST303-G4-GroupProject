@@ -3,6 +3,41 @@
 QuEST
 <h2>Team Members:</h2> Eunice Kang, Quan Zhou, Sahith Cheera
 
+<h2>How to run the application:</h2>
+<h3>Requirements:</h3>
+<ul>
+  <li>Python 3.7.1</li>
+  <li>pip 19.0.3</li>
+  <li>Virtual Environment 16.4.0</li>
+  
+<h3>Run Application:</h3>
+<ol>
+  <li>In the application root folder,
+<pre><code>
+# In Windows
+.\virtenv\Scripts\activate
+# In Mac
+source virtenv/Scripts/activate
+</code></pre>
+  </li>
+  <li>Now, run the app Django server.<br>
+    <code>
+      python manage.py runserver
+    </code>
+  </li>
+  <li>Something like this should show up:
+<pre><code>
+System check identified no issues (0 silenced).
+April 03, 2019 - 14:24:08
+Django version 2.1.7, using settings 'quest.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CTRL-BREAK.
+</code></pre>
+  </li>
+  <li>Copy the http link given and paste into a web browser.</li>
+  <li>To stop server: Ctrl+C</li>
+  <li>Deactivate the virtual environment</li>
+
 <h2>Application Concept: </h2>
 
 A universal product monitor. Capable of monitoring any site for products based on keywords or brand/shop. Optimized for Shopify. Sends alerts via Discord when products are restocked or dropped.
@@ -118,7 +153,7 @@ As an admin, I can choose products for the site catalog.
   Velocity: 33%
 
 <h2>Burn Down Chart:</h2>
-https://docs.google.com/spreadsheets/d/1_GElxk9OfzzL8LlJCtKbw0akDhyDqFmxAgP4YCWYFnY/edit?usp=sharing
+https://app.zenhub.com/workspaces/quest-5c7773a304004e3ba48b73b3/reports/burndown?milestoneId=4095391&selectedPipelines=5c7773a304004e3ba48b73b2
 
 <h2>Stand Up Meetings:</h2>
 https://docs.google.com/document/d/1Mx9A8oGmECCpuB7SF3sfGk1WLctAKHb8VLbcBaVW2fk/edit?usp=sharing
