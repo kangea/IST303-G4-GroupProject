@@ -20,4 +20,5 @@ from django.urls import include, path
 urlpatterns = [
     path('', include('products_monitor.urls')),
     path('admin/', admin.site.urls),
+    path(r'search/', include('haystack.urls')),
 ]

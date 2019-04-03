@@ -1,4 +1,6 @@
 from django.urls import path
+from django.conf.urls import include, url
+from haystack.views import SearchView
 
 from . import views
 
@@ -7,5 +9,8 @@ urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
     path('brands', views.BrandView.as_view(), name='brands'),
     path('products', views.ProductView.as_view(), name='products'),
-    path('<int:pk>/', views.ProductDetailView.as_view(), name='product_detail')
+    path('<int:pk>/', views.ProductDetailView.as_view(), name='product_detail'),
+    path(r'search/', include('haystack.urls')),
 ]
+
+url(r'^search/', include('haystack.urls'))
