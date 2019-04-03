@@ -1,6 +1,7 @@
 {% extends "products_monitor/base.html" %}
 
 {% block content %}
+
 <br>
   <h2 class="text-center">FEATURED BRANDS</h2>
   {% if brand_list %}
@@ -8,7 +9,7 @@
       {% for brand in brand_list %}
         <div class="col-sm p-5 m-auto">
           <a href="{{ brand.url }}">
-            <img src="{{ brand.logo_url }}" class="img-thumbnail">
+            <img src="{{ brand.logo_url }}" class="img-fluid">
           </a>
         </div>
         {% if forloop.counter|divisibleby:5 %}
