@@ -12,5 +12,3 @@ urlpatterns = [
     path('<int:pk>/', views.ProductDetailView.as_view(), name='product_detail'),
     path(r'search/', include('haystack.urls')),
 ]
-
-url(r'^search/', include('haystack.urls'))
