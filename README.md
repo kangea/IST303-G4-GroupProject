@@ -19,6 +19,7 @@ QuEST
 # In Mac
 source virtenv/Scripts/activate
 </code></pre>
+    You might have to <code>pip install -r requirements.txt</code> due to OS differences.
   </li>
   <li>Now, run the app Django server.<br>
     <code>
