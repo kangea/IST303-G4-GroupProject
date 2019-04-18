@@ -51,22 +51,24 @@
     <div class="col-9">
     {% if filter.qs %}
         <div class="card-deck">
+          <div class="row">
         {% for product in filter.qs %}
           <div class="col-sm d-flex">
-            <div class="card text-center flex-fill">
+            <div class="card text-center flex-fill border-light">
               <a href="{% url 'products_monitor:product_detail' product.id %}" class="m-auto">
-                <img src="{{ product.picture_url }}" class="card-img-top">
+                <img src="{{ product.picture_url }}" class="card-img-top product-img">
               </a>
-              <div class="card-footer">
+              <div class="card-body">
                 <a href="{% url 'products_monitor:product_detail' product.id %}" class="card-title">
-                  {{ product.brand }} {{ product.name }}
+                  <span>{{ product.brand }}</span><br>
+                  <span class="product-name">{{ product.name }}</span>
                 </a>
                 <p class="card-text text-center">${{ product.price }}</p>
               </div>
             </div>
           </div>
           {% if forloop.counter|divisibleby:4 %}
-            </div><br><div class="card-deck">
+            </div><br><div class="row">
           {% endif %}
         {% endfor %}
       </div>

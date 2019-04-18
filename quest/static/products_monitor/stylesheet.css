@@ -4,3 +4,12 @@
   display: -ms-flexbox;
   display:         flex;
 }
+
+.product-img {
+  object-fit: cover;
+  height: 125px;
+}
+
+.product-name {
+  font-size: 0.9rem;
+}
