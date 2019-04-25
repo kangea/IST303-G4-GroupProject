@@ -10,6 +10,27 @@
   height: 125px;
 }
 
+@media only screen and (min-width: 576px){
+  .product-img {
+    object-fit: cover;
+    height: 200px;
+  }
+}
+
+@media only screen and (min-width: 992px){
+  .product-img {
+    object-fit: cover;
+    height: 100px;
+  }
+}
+
+@media only screen and (min-width: 1200px){
+  .product-img {
+    object-fit: cover;
+    height: 125px;
+  }
+}
+
 .product-name {
   font-size: 0.9rem;
 }
