@@ -8,9 +8,7 @@
     <div class="row-eq-height">
       {% for brand in brand_list %}
         <div class="col-sm p-5 m-auto">
-          <a href="{{ brand.url }}">
             <img src="{{ brand.logo_url }}" class="img-fluid">
-          </a>
         </div>
         {% if forloop.counter|divisibleby:5 %}
           </div><div class="row-eq-height">

@@ -18,8 +18,8 @@ class IndexView(generic.ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(IndexView, self).get_context_data(*args, **kwargs)
-        context['product_list_new'] = Product.objects.all().order_by('-original_release_date')[:5]
-        context['product_list_restock'] = Product.objects.filter(restock_date__lte=timezone.now()).order_by('-restock_date')[:5]
+        context['product_list_new'] = Product.objects.all().order_by('-original_release_date')[:4]
+        context['product_list_restock'] = Product.objects.filter(restock_date__lte=timezone.now()).order_by('-restock_date')[:4]
         return context
 
 class ProductView(FilterView):
