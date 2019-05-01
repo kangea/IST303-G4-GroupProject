@@ -1,11 +1,12 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.views import generic
 from django_filters.views import FilterView
 from django_filters import rest_framework as filters
 from django.utils import timezone
 from .filters import ProductFilter
+from .forms import CustomUserCreationForm
 
 from .models import Brand, Product
 
@@ -21,6 +22,11 @@ class IndexView(generic.ListView):
         context['product_list_new'] = Product.objects.all().order_by('-original_release_date')[:4]
         context['product_list_restock'] = Product.objects.filter(restock_date__lte=timezone.now()).order_by('-restock_date')[:4]
         return context
+
+class SignUpView(generic.CreateView):
+    form_class = CustomUserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/signup.html'
 
 class ProductView(FilterView):
     template_name = 'products_monitor/products.html'

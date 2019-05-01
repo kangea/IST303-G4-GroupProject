@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractUser
 import datetime
 
 class CustomUser(AbstractUser):
-    discord = models.CharField(max_lenth=200)
+    discord = models.CharField(max_length=200)
 
     def __str__(self):
         return self.email

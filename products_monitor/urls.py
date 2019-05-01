@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^products/$', views.ProductView.as_view(), name='products'),
     path('<int:pk>/', views.ProductDetailView.as_view(), name='product_detail'),
     path(r'search/', include('haystack.urls')),
+    path('signup/', views.SignUpView.as_view(), name='signup'),
 ]

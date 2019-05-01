@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django_filters',
     'widget_tweaks',
     'haystack',
-    'products_monitor.apps.UsersConfig',
 ]
 
 REST_FRAMEWORK = {

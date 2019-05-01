@@ -22,5 +22,5 @@ urlpatterns = [
     path('', include('products_monitor.urls')),
     path('admin/', admin.site.urls),
     path(r'search/', include('haystack.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('', include('django.contrib.auth.urls')),
 ]
