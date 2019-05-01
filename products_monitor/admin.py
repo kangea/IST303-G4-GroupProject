@@ -8,6 +8,8 @@ from .models import Brand, Product, ProductURL, CustomUser
 class CustomUserAdmin(UserAdmin):
     add_form = CustomUserCreationForm
     form = CustomUserChangeForm
+    fieldsets = UserAdmin.fieldsets + (
+            (None, {'fields': ('discord',)}),)
     model = CustomUser
     list_display = ['email', 'username', 'discord']
 

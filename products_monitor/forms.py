@@ -5,13 +5,13 @@ from .models import CustomUser
 class CustomUserCreationForm(UserCreationForm):
     # discord = forms.CharField(label="Discord")
 
-    class Meta(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
         model = CustomUser
-        fields = ('username', 'email', 'discord')
+        fields = ['username', 'email', 'discord']
 
 class CustomUserChangeForm(UserChangeForm):
     # discord = forms.CharField(label="Discord")
 
-    class Meta:
+    class Meta(UserChangeForm.Meta):
         model = CustomUser
-        fields = ('username', 'email', 'discord')
+        fields = ['username', 'email', 'discord']
