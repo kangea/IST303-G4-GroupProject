@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_filters',
     'widget_tweaks',
     'haystack',
+    'products_monitor.apps.UsersConfig',
 ]
 
 REST_FRAMEWORK = {
@@ -156,3 +157,5 @@ HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 LOGIN_REDIRECT_URL = '/'
+
+AUTH_USER_MODEL = 'products_monitor.CustomUser'
