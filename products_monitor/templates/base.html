@@ -31,7 +31,7 @@
       <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
     </form>
     {% if user.is_authenticated %}
-     <span class="navbar-text">Hi, {{ user.get_username }}</span>
+     <span class="navbar-text">Hi, <a href="{% url 'products_monitor:userprofile' %}">{{ user.get_username }}</a></span>
      <a class="nav-link" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
    {% else %}
      <a class="nav-link" href="{% url 'login'%}?next={{request.path}}">Login</a>

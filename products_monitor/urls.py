@@ -13,4 +13,5 @@ urlpatterns = [
     path('<int:pk>/', views.ProductDetailView.as_view(), name='product_detail'),
     path(r'search/', include('haystack.urls')),
     path('signup/', views.SignUpView.as_view(), name='signup'),
+    path('profile/', views.UserProfileView.as_view(), name='userprofile'),
 ]

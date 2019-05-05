@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<h1>Welcome, {{ user.get_username }}!</h1>
+<br>
+<div>
+  <h2>Saved Products</h2>
+  {% if saved_product_list %}
+    <div class="card-deck">
+      {% for product in saved_product_list %}
+        <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
+          <div class="card text-center flex-fill border-light">
+            <a href="{% url 'products_monitor:product_detail' product.id }">
+              <img src="{{ product.picture_url }}" class="card-img-top product-img-index">
+            </a>
+            <div class="card-body">
+              <a href="{% url 'products_monitor:product_detail' product.id }" class="card-title text-center">
+                <span>{{ product.brand }}</span><br>
+                <span class="product-name">{{ product.name }}</span>
+              </a>
+              <p class="card-text text-center">${{ product.price }}</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>You have no saved products</p>
+  {% endif %}
+</div>
+
+{% endblock %}

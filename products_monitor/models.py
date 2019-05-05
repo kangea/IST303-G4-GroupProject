@@ -41,3 +41,7 @@ class ProductURL(models.Model):
 
     def __str__(self):
         return self.url
+
+class SavedProduct(models.Model):
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)

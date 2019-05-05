@@ -7,8 +7,10 @@ from django_filters import rest_framework as filters
 from django.utils import timezone
 from .filters import ProductFilter
 from .forms import CustomUserCreationForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Brand, Product
+
+from .models import Brand, Product, SavedProduct
 
 class IndexView(generic.ListView):
     template_name = 'products_monitor/index.html'
@@ -39,7 +41,6 @@ class ProductView(FilterView):
     def get_queryset(self):
         return Product.objects.all()
 
-
 class ProductDetailView(generic.DetailView):
     model = Product
     template_name = 'products_monitor/product_detail.html'
@@ -53,3 +54,13 @@ class BrandView(generic.ListView):
 
     def get_queryset(self):
         return Brand.objects.all().order_by('name')
+
+class UserProfileView(LoginRequiredMixin, generic.ListView):
+    login_url = '/login/'
+    redirect_field_name = 'next'
+    template_name = 'products_monitor/userprofile.html'
+    context_object_name = 'saved_product_list'
+
+    def get_queryset(self):
+        current_user = self.request.user
+        return SavedProduct.objects.filter(user=current_user.id)
