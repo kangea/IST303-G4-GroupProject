@@ -158,3 +158,7 @@ HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 LOGIN_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'products_monitor.CustomUser'
+
+# EMAIL SETTINGS
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
