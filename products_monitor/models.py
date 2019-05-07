@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 import datetime
+from django.conf import settings
 
 class CustomUser(AbstractUser):
     discord = models.CharField(max_length=200)
@@ -43,5 +44,5 @@ class ProductURL(models.Model):
         return self.url
 
 class SavedProduct(models.Model):
-    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
