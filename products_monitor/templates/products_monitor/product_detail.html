@@ -28,15 +28,15 @@
     <h2>{{ product.name }}</h2>
     <h3>${{ product.price }}</h3>
     <h5>SKU: {{ product.SKU }}</h4>
-    <h5>Released on {{ product.original_release_date }}</h4>
+    <h6>Released on {{ product.original_release_date|date:'M d, Y' }}</h4>
     <!-- info section -->
     <!-- stock status -->
     <div class="">
       {% if product.instock %}
-        <p>IN STOCK</p>
+        <span>IN STOCK</span>
       {% else %}
-        <p>OUT OF STOCK</p>
-        <span>Will restock on {{ product.restock_date }}</span>
+        <span>OUT OF STOCK</span><br>
+        <span>Will restock on {{ product.restock_date|date:'M d, Y' }}</span>
       {% endif %}
     </div>
     <!-- Links -->
@@ -45,6 +45,10 @@
           <a href="{{ url.url }}" class="btn">{{ url.site_name }}</a>
         {% endfor %}
     </div>
+    <form action="{% url 'products_monitor:notify' product.id %}" method="POST">
+      {% csrf_token %}
+      <input type="submit" value="Notify me on Discord" class="btn btn-primary">
+    </form>
   </div>
 </div>
 

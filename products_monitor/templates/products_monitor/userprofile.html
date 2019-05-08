@@ -8,18 +8,18 @@
   <h2>Saved Products</h2>
   {% if saved_product_list %}
     <div class="card-deck">
-      {% for product in saved_product_list %}
+      {% for saved_product in saved_product_list %}
         <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
           <div class="card text-center flex-fill border-light">
-            <a href="{% url 'products_monitor:product_detail' product.id }">
-              <img src="{{ product.picture_url }}" class="card-img-top product-img-index">
+            <a href="{% url 'products_monitor:product_detail' saved_product.product.id %}">
+              <img src="{{ saved_product.product.picture_url }}" class="card-img-top product-img-index">
             </a>
             <div class="card-body">
-              <a href="{% url 'products_monitor:product_detail' product.id }" class="card-title text-center">
-                <span>{{ product.brand }}</span><br>
-                <span class="product-name">{{ product.name }}</span>
+              <a href="{% url 'products_monitor:product_detail' saved_product.product.id %}" class="card-title text-center">
+                <span>{{ saved_product.product.brand }}</span><br>
+                <span class="product-name">{{ saved_product.product.name }}</span>
               </a>
-              <p class="card-text text-center">${{ product.price }}</p>
+              <p class="card-text text-center">${{ saved_product.product.price }}</p>
             </div>
           </div>
         </div>

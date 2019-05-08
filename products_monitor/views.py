@@ -8,6 +8,7 @@ from django.utils import timezone
 from .filters import ProductFilter
 from .forms import CustomUserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 from .models import Brand, Product, SavedProduct
@@ -48,6 +49,15 @@ class ProductDetailView(generic.DetailView):
     def get_queryset(self):
         return Product.objects.all()
 
+@login_required
+def save_product(request, product_id):
+    current_user = request.user
+    current_product = get_object_or_404(Product, pk=product_id)
+    exist_count = SavedProduct.objects.filter(user=current_user, product=current_product).count()
+    if exist_count == 0:
+        SavedProduct.objects.create(user=current_user, product=current_product)
+    return HttpResponseRedirect(reverse('products_monitor:userprofile'))
+
 class BrandView(generic.ListView):
     template_name = 'products_monitor/brands.html'
     context_object_name = 'brand_list'
@@ -63,4 +73,4 @@ class UserProfileView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         current_user = self.request.user
-        return SavedProduct.objects.filter(user=current_user.id)
+        return SavedProduct.objects.filter(user=current_user)

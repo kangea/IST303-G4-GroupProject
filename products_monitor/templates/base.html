@@ -28,7 +28,7 @@
     </ul>
     <form class="form-inline my-2 my-lg-0" action="{% url 'haystack_search' %}" method="get">
       <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
+      <button class="btn btn-outline-primary my-2 my-sm-0 mr-sm-2" type="submit">Search</button>
     </form>
     {% if user.is_authenticated %}
      <a class="nav-link" href="{% url 'products_monitor:userprofile' %}">{{ user.get_username }}</a>
