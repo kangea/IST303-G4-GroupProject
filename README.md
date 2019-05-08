@@ -9,6 +9,7 @@ QuEST
   <li>Python 3.7.1</li>
   <li>pip 19.0.3</li>
   <li>Virtual Environment 16.4.0</li>
+</ul>
   
 <h3>Run Application:</h3>
 <ol>
@@ -38,6 +39,10 @@ Quit the server with CTRL-BREAK.
   <li>Copy the http link given and paste into a web browser.</li>
   <li>To stop server: Ctrl+C</li>
   <li>Deactivate the virtual environment</li>
+</ol>
+
+<h3>Tests:</h3>
+In the application root folder, run <code>pytest</code>
 
 <h2>Application Concept: </h2>
 
