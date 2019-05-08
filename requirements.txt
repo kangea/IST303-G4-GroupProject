@@ -20,3 +20,5 @@ django-widget-tweaks==1.4.3
 Whoosh==2.7.4
 wrapt==1.11.1
 pytest-django==3.4.8
+selenium
+python-dateutil

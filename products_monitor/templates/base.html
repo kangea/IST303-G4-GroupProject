@@ -5,6 +5,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   {% load static %}
   <link rel="stylesheet" type="text/css" href="{% static 'products_monitor/stylesheet.css' %}">
+  <title>QuEST</title>
 </head>
 
 <html>
@@ -23,7 +24,7 @@
         <a class="nav-link" href="{% url 'products_monitor:brands' %}">Brands</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'products_monitor:products' %}">Products</a>
+        <a class="nav-link" id="productlink" href="{% url 'products_monitor:products' %}">Products</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="{% url 'haystack_search' %}" method="get">
@@ -32,9 +33,9 @@
     </form>
     {% if user.is_authenticated %}
      <a class="nav-link" href="{% url 'products_monitor:userprofile' %}">{{ user.get_username }}</a>
-     <a class="nav-link" href="{% url 'logout'%}">Logout</a>
+     <a class="nav-link" id="logoutlink" href="{% url 'logout'%}">Logout</a>
    {% else %}
-     <a class="nav-link" href="{% url 'login'%}">Login</a>
+     <a class="nav-link" id="loginlink" href="{% url 'login'%}">Login</a>
    {% endif %}
   </div>
 </nav>
