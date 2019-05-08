@@ -23,7 +23,7 @@ class IndexView(generic.ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(IndexView, self).get_context_data(*args, **kwargs)
         context['product_list_new'] = Product.objects.all().order_by('-original_release_date')[:4]
-        context['product_list_restock'] = Product.objects.filter(restock_date__lte=timezone.now()).order_by('-restock_date')[:4]
+        #context['product_list_restock'] = Product.objects.filter(restock_date__lte=timezone.now()).order_by('-restock_date')[:4]
         return context
 
 class SignUpView(generic.CreateView):
@@ -36,7 +36,7 @@ class ProductView(FilterView):
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = ProductFilter
     context_object_name = 'product_list'
-    ordering_fields = ('price', 'restock_date', 'original_release_date', 'watchers')
+    ordering_fields = ('price', 'original_release_date', 'watchers')
     ordering = 'release_date'
 
     def get_queryset(self):
