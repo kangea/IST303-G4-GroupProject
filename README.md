@@ -92,7 +92,6 @@ As an admin, I can choose products for the site catalog.
   <ul>
     <li>Registration and login page (Sahith)</li>
     <li>Database for user information (Quan)</li>
-    <li>Facebook API to create user account (Sahith)</li>
   </ul>
 </li>
 <li>As a user, I can save products to monitor. (14 days) - priority: 30
@@ -136,7 +135,7 @@ As an admin, I can choose products for the site catalog.
   </li>
 </ol>
 
-<h2>2 Iterations for Milestone 1.0: (30 days)</h2>
+<h3>2 Iterations for Milestone 1.0: (30 days)</h3>
 <ul>
   <li>Iteration 1: (15 days)
      <ul>
@@ -153,6 +152,22 @@ As an admin, I can choose products for the site catalog.
     </ul>
   </li>
 </ul>
+
+<h2>Milestone 2.0</h2>
+<ol>
+  <li>User Registration
+    <ul>
+      <li>Registration, login, and user profile pages</li>
+      <li>Database for user information</li>
+    </ul>
+  </li>
+  <li>Product Monitor
+    <ul>
+      <li>Save product to profile</li>
+      <li>Notification script</li>
+    </ul>
+  </li> 
+</ol>
 
 <h2>Velocity:</h2>
   Timeline: 34 days until Milestone 1.0 is due, 62 days until Milestone 2.0 is due <br>
