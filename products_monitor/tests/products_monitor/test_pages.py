@@ -38,11 +38,3 @@ def test_brands(driver):
     expected = "FEATURED BRANDS"
     h2 = driver.find_element_by_tag_name('h2')
     assert h2.text == expected
-
-def test_searching(driver):
-    driver.get(HOMEPAGE)
-    driver.find_element_by_tag_name('input').send_keys('adidas')
-    driver.find_element_by_id('searchbtn').click()
-    h2 = driver.find_element_by_tag_name('h2')
-    expected = "SEARCH"
-    assert expected == h2.text
