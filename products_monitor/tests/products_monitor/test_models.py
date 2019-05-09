@@ -1,18 +1,16 @@
 import pytest
 import datetime
 
-from products_monitor.models import Product, Brand, ProductURL
+from products_monitor.models import Product, Brand
 
 pytestmark = pytest.mark.django_db
 
 def test_addBrand():
     b = Brand.objects.create(
         name="hello",
-        url="hello.com",
         logo_url="hello_pic.jpg"
     )
     assert b.name == "hello"
-    assert b.url == "hello.com"
 
 @pytest.mark.xfail
 def test_failaddbrand():
@@ -25,7 +23,6 @@ def test_failaddbrand():
 def test_queryBrand():
     Brand.objects.create(
         name="hello",
-        url="hello.com",
         logo_url="hello_pic.jpg"
     )
     b = Brand.objects.filter(name="hello")
@@ -34,14 +31,13 @@ def test_queryBrand():
 def test_queryProduct():
     b = Brand.objects.create(
         name="hello",
-        url="hello.com",
         logo_url="hello_pic.jpg"
     )
     Product.objects.create(
         name="1",
         brand=b,
         price=100,
-        restock_date = datetime.datetime.now(),
+        restock = False,
         original_release_date = datetime.datetime.now(),
         instock = True
     )
@@ -49,7 +45,7 @@ def test_queryProduct():
         name="1",
         brand=b,
         price=100,
-        restock_date = datetime.datetime.now(),
+        restock = False,
         original_release_date = datetime.datetime.now(),
         instock = True
     )
@@ -60,12 +56,10 @@ def test_queryProduct():
 def test_failBrandquery():
     Brand.objects.create(
         name="hello",
-        url="hello.com",
         logo_url="hello.jpg"
     )
     Brand.objects.create(
         name="goodbye",
-        url="goodbye.com",
         logo_url="goodbye.jpg"
     )
     b_list = list(Brand.objects.filter(name="ciao"))
