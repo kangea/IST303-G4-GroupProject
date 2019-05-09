@@ -154,3 +154,13 @@ HAYSTACK_CONNECTIONS = {
 }
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 10
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'login'
+
+AUTH_USER_MODEL = 'products_monitor.CustomUser'
+AUTH_PROFILE_MODULE = 'products_monitor.CustomUser'
+
+# EMAIL SETTINGS
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

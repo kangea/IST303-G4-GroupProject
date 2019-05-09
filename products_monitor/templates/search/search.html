@@ -1,33 +1,55 @@
-{% extends "products_monitor/base.html" %}
+{% extends "base.html" %}
+{% load widget_tweaks %}
 
 {% block content %}
-    <h2>Search</h2>
+<br>
+<h2>SEARCH</h2>
+<div class="row">
+  <form method="get" action="." class="form-inline">
+    <div class="form-group">
+      {% render_field form.q class="form-control mr-sm-2" %}
+    </div>
+    <input class="btn btn-primary" type="submit" value="Search">
+  </form>
+</div>
 
-    <form method="get" action=".">
-            {{ form.q }}
-                    <input type="submit" value="Search">
-    </form>
+<h2>RESULTS</h2>
+<div>
+  {% if query %}
+    {% if page.object_list %}
+    <div class="card-deck">
+      {% for result in page.object_list %}
+          <!-- <p>
+            <a href="{% url 'products_monitor:product_detail' result.object.id %}">{{ result.object.name }}</a>
+          </p> -->
+          <div class="col-sm-12 col-md-6 col-lg-3 d-flex">
+            <div class="card text-center flex-fill border-light">
+              <a href="{% url 'products_monitor:product_detail' result.object.id %}">
+                <img src="{{ result.object.picture_url }}" class="card-img-top product-img-index">
+              </a>
+              <div class="card-body">
+                <a href="{% url 'products_monitor:product_detail' result.object.id %}" class="card-title text-center">
+                  <span>{{ result.object.brand }}</span><br>
+                  <span class="product-name">{{ result.object.name }}</span>
+                </a>
+                <p class="card-text text-center">${{ result.object.price }}</p>
+              </div>
+            </div>
+          </div>
+      {% endfor %}
+      {% else %}
+        <p>No results were found.</p>
+    {% endif %}
 
-        {% if query %}
-            <h3>Results</h3>
-            {% if page.object_list %}
-            {% for result in page.object_list %}
-                <p>
-                    <a href="{% url 'products_monitor:product_detail' result.object.id %}">{{ result.object.name }}</a>
-                </p>
-            {% endfor %}
-            {% else %}
-                <p>No results found.</p>
-            {% endif %}
-
-            {% if page.has_previous or page.has_next %}
-                <div>
-                    {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-                    |
-                    {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-                </div>
-            {% endif %}
-        {% else %}
-            {# Show some example queries to run, maybe query syntax, something else? #}
-        {% endif %}
+    {% if page.has_previous or page.has_next %}
+          <div>
+              {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
+              |
+              {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
+          </div>
+    {% endif %}
+  {% else %}
+      <!-- {# Show some example queries to run, maybe query syntax, something else? #} -->
+  {% endif %}
+</div>
 {% endblock %}

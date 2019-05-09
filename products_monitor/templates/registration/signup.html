@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<br>
+<h1>Sign up</h1>
+<form method="post">
+  {% csrf_token %}
+  <div class="form-group form-row form-inline">
+    <label for="{{ form.username.id_for_label }}" class="col-2 col-form-label">{{ form.username.label }}</label>
+    {% render_field form.username class="form-control col-2" %}
+    <small class="form-text text-muted ml-sm-2">{{ form.username.help_text }}</small>
+  </div>
+  <div class="form-group form-row form-inline">
+    <label for="{{ form.email.id_for_label }}" class="col-2 col-form-label">{{ form.discord.label }}</label>
+    {% render_field form.discord class="form-control col-2" %}
+  </div>
+  <div class="form-group form-row form-inline">
+    <label for="{{ form.email.id_for_label }}" class="col-2 col-form-label">Email</label>
+    {% render_field form.email class="form-control col-2" %}
+  </div>
+  <div class="form-group form-row form-inline">
+    <label for="{{ form.password1.id_for_label }}" class="col-2 col-form-label">{{ form.password1.label }}</label>
+    {% render_field form.password1 class="form-control col-2" %}
+    <small class="form-text text-muted ml-sm-2">{{ form.password1.help_text }}</small>
+  </div>
+  <div class="form-group form-row form-inline">
+    <label for="{{ form.password2.id_for_label }}" class="col-2 col-form-label">Confirm password</label>
+    {% render_field form.password2 class="form-control col-2" %}
+  </div>
+  <button type="submit" class="btn btn-primary">Sign up</button>
+</form>
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "products_monitor/base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
@@ -27,17 +27,12 @@
     <h3>{{ product.brand }}</h3>
     <h2>{{ product.name }}</h2>
     <h3>${{ product.price }}</h3>
-    <h4>SKU: {{ product.SKU }}</h4>
-    <h4>Released on {{ product.original_release_date }}</h4>
+    <h5>SKU: {{ product.SKU }}</h4>
+    <h6>Released on {{ product.original_release_date|date:'M d, Y' }}</h4>
     <!-- info section -->
     <!-- stock status -->
     <div class="">
-      {% if product.instock %}
-        <p>IN STOCK</p>
-      {% else %}
-        <p>OUT OF STOCK</p>
-        <span>Will restock on {{ product.restock_date }}</span>
-      {% endif %}
+
     </div>
     <!-- Links -->
     <div class="row">
@@ -45,6 +40,10 @@
           <a href="{{ url.url }}" class="btn">{{ url.site_name }}</a>
         {% endfor %}
     </div>
+    <form action="{% url 'products_monitor:notify' product.id %}" method="POST" target="_blank">
+      {% csrf_token %}
+      <input type="submit" value="Notify me on Discord" class="btn btn-primary">
+    </form>
   </div>
 </div>
 
