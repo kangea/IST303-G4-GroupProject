@@ -32,12 +32,7 @@
     <!-- info section -->
     <!-- stock status -->
     <div class="">
-      {% if product.instock %}
-        <span>IN STOCK</span>
-      {% else %}
-        <span>OUT OF STOCK</span><br>
-        <span>Will restock on {{ product.restock_date|date:'M d, Y' }}</span>
-      {% endif %}
+
     </div>
     <!-- Links -->
     <div class="row">
