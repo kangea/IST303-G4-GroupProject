@@ -153,12 +153,12 @@ As an admin, I can choose products for the site catalog.
   </li>
 </ul>
 
-<h2>Milestone 2.0</h2>
+<h2>Milestone 2.0:</h2>
 <ol>
   <li>User Registration
     <ul>
       <li>Registration, login, and user profile pages</li>
-      <li>Database for user information</li>
+      <li>Custom table for user information</li>
     </ul>
   </li>
   <li>Product Monitor
@@ -168,6 +168,22 @@ As an admin, I can choose products for the site catalog.
     </ul>
   </li> 
 </ol>
+
+<h3>2 Iterations for Milestone 2.0: (30 days)</h3>
+<ul>
+  <li>Iteration 1: (15 days)
+     <ul>
+       <li>Custom table for user information</li>
+       <li>Registration, login, and user profile pages</li>
+     </ul>
+  </li>
+  <li>Iteration 2: (15 days)
+    <ul>
+      <li>Save product to profile</li>
+      <li>Notification script</li>
+    </ul>
+  </li>
+</ul>
 
 <h2>Velocity:</h2>
   Timeline: 34 days until Milestone 1.0 is due, 62 days until Milestone 2.0 is due <br>
