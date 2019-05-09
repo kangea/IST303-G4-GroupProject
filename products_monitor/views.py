@@ -13,6 +13,8 @@ from django.contrib.auth.decorators import login_required
 
 from .models import Brand, Product, SavedProduct
 
+restock_invite_link = "https://discord.gg/BXPDR7"
+
 class IndexView(generic.ListView):
     template_name = 'products_monitor/index.html'
     context_object_name = 'brand_list'
@@ -23,7 +25,7 @@ class IndexView(generic.ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(IndexView, self).get_context_data(*args, **kwargs)
         context['product_list_new'] = Product.objects.all().order_by('-original_release_date')[:4]
-        #context['product_list_restock'] = Product.objects.filter(restock_date__lte=timezone.now()).order_by('-restock_date')[:4]
+        #context['product_list_restock'] = Product.objects.filter(original_release_date__lte=timezone.now()).order_by('-restock_date')[:4]
         return context
 
 class SignUpView(generic.CreateView):
