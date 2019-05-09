@@ -139,7 +139,7 @@ def monitor_shopify(keywords, site, pro):
                                 break
                             else:
                                 site_list.append(site)
-
+                                send_embed(link, variants, site, image, title, webhook)
 
                         #elif(product_found and p.restock):
                         #    send_embed("RESTOCK_SHOPIFY", link, variants, site, image, title)
