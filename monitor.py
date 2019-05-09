@@ -130,10 +130,16 @@ def monitor_shopify(keywords, site, product):
                         product_found = True
 
                         # Send a Discord alert if the product is new
-                        if(product_found):
+                        if(product_found and not p.restock):
                             send_embed(link, variants, site, image, title, webhook)
                             p.restock = True
                             p.save()
+                        elif(product_found and p.restock):
+                            if(site in site_list):
+                                break
+                            else:
+                                site_list.append(site)
+
 
                         #elif(product_found and p.restock):
                         #    send_embed("RESTOCK_SHOPIFY", link, variants, site, image, title)
@@ -146,6 +152,7 @@ if(__name__ == "__main__"):
     requests.packages.urllib3.disable_warnings()
 
     site = "https://coplitshoes.myshopify.com"
+    site_list=[]
     
     #Process(target=monitor_new).start()
     #Thread(target=monitor_restock).start()
@@ -161,3 +168,14 @@ if(__name__ == "__main__"):
             webhook = p.channelWebhook
 
         monitor_shopify(keywords, site, p)
+
+        r_list = Product.objects.filter(restock=True)
+        for r in r_list:
+            r_keywords = ProductKeyWord.objects.filter(product=r)
+            keywords = []
+            for pk in r_keywords:
+                print(pk.product.name)
+                keywords.append(pk.keyword)
+            webhook = "https://discordapp.com/api/webhooks/575850046038212618/nUCvjX7Q4rOFarecc1lli5Jw3rGngTGsGlmx9vcF-G3opNsF_WeH7-b1YNWfeNF_5gl3"
+        
+        monitor_shopify(keywords, site, r)
