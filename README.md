@@ -42,7 +42,7 @@ Quit the server with CTRL-BREAK.
 </ol>
 
 <h3>Run Discord Monitor script:</h3>
-(Will not work properly do to disconnected services)<br>
+(Will not work properly due to disconnected services)<br>
 In the application root folder, run <code>python monitor.py</code>
 
 <h3>Tests:</h3>
