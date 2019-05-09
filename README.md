@@ -41,6 +41,9 @@ Quit the server with CTRL-BREAK.
   <li>Deactivate the virtual environment</li>
 </ol>
 
+<h3>Run Discord Monitor script:</h3>
+In the application root folder, run <code>python monitor.py</code>
+
 <h3>Tests:</h3>
 In the application root folder, run <code>pytest</code>
 
