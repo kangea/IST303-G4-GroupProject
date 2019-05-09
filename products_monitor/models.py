@@ -25,6 +25,7 @@ class Product(models.Model):
     picture_url = models.URLField()
     price = models.DecimalField(max_digits=10,decimal_places=2)
     #restock_date = models.DateTimeField('date restocked')
+    restock = models.BooleanField()
     original_release_date = models.DateTimeField('original release date')
     #watchers = models.IntegerField(default=0)
     discordChannelLink = models.URLField()

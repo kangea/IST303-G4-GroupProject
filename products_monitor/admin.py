@@ -18,7 +18,7 @@ class ProductKeyWordInLine(admin.TabularInline):
     extra = 5
 
 class ProductAdmin(admin.ModelAdmin):
-    fields = ['name','brand','SKU','instock','picture_url','price','original_release_date','discordChannelLink','channelWebhook']
+    fields = ['name','brand','SKU','instock','picture_url','price','original_release_date','restock','discordChannelLink','channelWebhook']
     inlines = [ProductKeyWordInLine]
 
 admin.site.register(CustomUser, CustomUserAdmin)
