@@ -40,7 +40,7 @@
           <a href="{{ url.url }}" class="btn">{{ url.site_name }}</a>
         {% endfor %}
     </div>
-    <form action="{% url 'products_monitor:notify' product.id %}" method="POST">
+    <form action="{% url 'products_monitor:notify' product.id %}" method="POST" target="_blank">
       {% csrf_token %}
       <input type="submit" value="Notify me on Discord" class="btn btn-primary">
     </form>

@@ -25,7 +25,7 @@ class IndexView(generic.ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(IndexView, self).get_context_data(*args, **kwargs)
         context['product_list_new'] = Product.objects.all().order_by('-original_release_date')[:4]
-        #context['product_list_restock'] = Product.objects.filter(original_release_date__lte=timezone.now()).order_by('-restock_date')[:4]
+        context['product_list_restock'] = Product.objects.filter(restock=True)[:4]
         return context
 
 class SignUpView(generic.CreateView):
@@ -58,7 +58,7 @@ def save_product(request, product_id):
     exist_count = SavedProduct.objects.filter(user=current_user, product=current_product).count()
     if exist_count == 0:
         SavedProduct.objects.create(user=current_user, product=current_product)
-    return HttpResponseRedirect(reverse('products_monitor:userprofile'))
+    return HttpResponseRedirect(current_product.discordChannelLink)
 
 class BrandView(generic.ListView):
     template_name = 'products_monitor/brands.html'

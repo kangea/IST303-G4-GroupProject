@@ -7,8 +7,7 @@ django.setup()
 import requests
 from monitor_log import log as log
 import time
-#from threading import Thread
-from multiprocessing import Process
+from threading import Thread
 from datetime import datetime
 import random
 import json
@@ -59,7 +58,7 @@ def send_embed(link, fields, site, image, product, webhook):
 #     product = get_object_or_404()
 #     webhook = Product.objects.filter()
 
-def monitor_shopify(keywords, site, product):
+def monitor_shopify(keywords, site, pro):
     log('i', "Monitoring site <" + site + ">.")
 
     # Create link to monitor (Kith is a special case)
@@ -130,11 +129,12 @@ def monitor_shopify(keywords, site, product):
                         product_found = True
 
                         # Send a Discord alert if the product is new
-                        if(product_found and not p.restock):
+                        if(product_found and not pro.restock):
                             send_embed(link, variants, site, image, title, webhook)
-                            p.restock = True
-                            p.save()
-                        elif(product_found and p.restock):
+                            pro.restock = True
+                            pro.save()
+
+                        elif(product_found and pro.restock):
                             if(site in site_list):
                                 break
                             else:
@@ -166,8 +166,8 @@ if(__name__ == "__main__"):
                 print(pk.product.name)
                 keywords.append(pk.keyword)
             webhook = p.channelWebhook
-
-        monitor_shopify(keywords, site, p)
+            monitor_shopify(keywords, site, p)
+        
 
         r_list = Product.objects.filter(restock=True)
         for r in r_list:
@@ -177,5 +177,4 @@ if(__name__ == "__main__"):
                 print(pk.product.name)
                 keywords.append(pk.keyword)
             webhook = "https://discordapp.com/api/webhooks/575850046038212618/nUCvjX7Q4rOFarecc1lli5Jw3rGngTGsGlmx9vcF-G3opNsF_WeH7-b1YNWfeNF_5gl3"
-        
-        monitor_shopify(keywords, site, r)
+            monitor_shopify(keywords, site, r)
