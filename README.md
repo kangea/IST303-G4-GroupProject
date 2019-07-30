@@ -192,9 +192,3 @@ As an admin, I can choose products for the site catalog.
 <h2>Velocity:</h2>
   Timeline: 34 days until Milestone 1.0 is due, 62 days until Milestone 2.0 is due <br>
   Velocity: 33%
-
-<h2>Burn Down Chart:</h2>
-https://app.zenhub.com/workspaces/quest-5c7773a304004e3ba48b73b3/reports/burndown?milestoneId=4095391&selectedPipelines=5c7773a304004e3ba48b73b2
-
-<h2>Stand Up Meetings:</h2>
-https://docs.google.com/document/d/1Mx9A8oGmECCpuB7SF3sfGk1WLctAKHb8VLbcBaVW2fk/edit?usp=sharing
